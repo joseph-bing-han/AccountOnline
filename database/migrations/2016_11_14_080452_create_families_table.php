@@ -16,7 +16,6 @@ class CreateFamiliesTable extends Migration
         Schema::create('families', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->uuid('family_id');  //families table primary id
             $table->unsignedInteger('created_by'); // creat user id
             $table->unsignedInteger('updated_by'); // modify user id
             $table->timestamps();
