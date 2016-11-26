@@ -18,9 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('api_token', 32)->nullable();
             $table->rememberToken();
+            $table->enum('language', array('en', 'zh_cn'))->default('en');
+            $table->string('time_zone')->default('Asia/Shanghai');
             $table->uuid('family_id');  //families table primary id
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

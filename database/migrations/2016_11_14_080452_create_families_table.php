@@ -19,7 +19,7 @@ class CreateFamiliesTable extends Migration
             $table->unsignedInteger('created_by'); // creat user id
             $table->unsignedInteger('updated_by'); // modify user id
             $table->timestamps();
-            $table->tinyInteger('delete')->default('0');
+            $table->softDeletes();
         });
     }
 
