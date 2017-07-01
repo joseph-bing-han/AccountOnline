@@ -8,3 +8,4 @@ Homestead.yaml
 .env
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
+/SoapUI-5.3.0

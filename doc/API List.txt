@@ -1,0 +1,34 @@
+Auth
+    login
+    logout
+
+User
+    register
+    create
+    retrieve
+    update
+    delete
+
+Family
+    register
+    retrieve
+    update
+    delete
+
+Bank
+    create
+    retrieve
+    update
+    delete
+
+Card
+    create
+    retrieve
+    update
+    delete
+
+Journal
+    create
+    retrieve
+    update
+    delete
