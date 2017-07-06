@@ -1,5 +1,6 @@
-@extends('layouts.app')
-
+@extends('layouts.main')
+@section('sidebar')
+@stop
 @section('content')
 <div class="container">
     <div class="row">

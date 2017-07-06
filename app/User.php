@@ -10,6 +10,9 @@ class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
+    use ListConfig;
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,6 +31,27 @@ class User extends Authenticatable
         'password', 'remember_token', 'api_token'
     ];
 
+
+    private $list_config = [
+        'name' => [
+            'field' => 'name',
+            'type' => 'varchar',
+            'label' => 'user.lbl_list_name'
+        ],
+        'email' => [
+            'field' => 'email',
+            'type' => 'varchar',
+            'label' => 'user.lbl_list_email'
+        ],
+        'language' => [
+            'field' => 'language',
+            'type' => 'options',
+            'options_list' =>'user.list_language',
+            'label' => 'user.lbl_list_language',
+
+        ],
+    ];
+
     public function isAdmin()
     {
         return $this->id == 1 && $this->email == 'admin';
@@ -37,4 +61,5 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Families');
     }
+
 }

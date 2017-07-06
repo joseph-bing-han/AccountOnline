@@ -16,7 +16,7 @@ class CreateJournalsTable extends Migration
         Schema::create('journals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->decimal('value', 65, 2)->default('0.00');
-            $table->enum('type',array('income','expenditure'))->default('income');
+            $table->enum('type',array('income','expense'))->default('income');
             $table->enum('with',array('cash','bank'))->default('cash');
             $table->bigInteger('card_id')->nullable();
             $table->uuid('family_id');  //families table primary id

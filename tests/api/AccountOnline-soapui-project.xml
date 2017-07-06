@@ -1,14 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="54d29f1c-e594-498f-bb65-2156ece78fb2" activeEnvironment="Default" name="AccountOnline" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="6b3b64fb-c6de-41d0-bcfa-b33d27560948" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://ao.docker-lamp" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://ao.docker-lamp</con:endpoint></con:endpoints><con:resource name="Login" path="/api/auth/login" id="75a11401-1760-4564-8657-561fac6b5394"><con:settings/><con:parameters/><con:method name="Login" id="e67ca0b8-c9b7-45d8-ae76-24d3d254cb7c" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:log="http://ao.docker-lamp/api/auth/login">log:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html; charset=UTF-8</con:mediaType><con:status>500 429</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:log="http://ao.docker-lamp/api/auth/login">log:Fault</con:element></con:representation><con:request name="admin" id="a63269a5-ef8e-473f-b1d7-643931dfe80c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://ao.docker-lamp</con:endpoint><con:request>{
-	"email":"admin",
-	"password":"111111"
-}</con:request><con:originalUri>http://ao.docker-lamp/api/auth/login</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="12270380-13b4-4ee8-a471-c0ca9851984a" name="AccountOnline"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="ead4e603-d81e-406d-b53a-b35f7c44f354" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Auth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Loing - admin - incorrect password" id="1b39bad5-386b-4098-a41d-3110df6f12be"><con:settings/><con:config service="http://ao.docker-lamp" resourcePath="/api/auth/login" methodName="Login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Loing - admin - incorrect password" id="a63269a5-ef8e-473f-b1d7-643931dfe80c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://ao.docker-lamp</con:endpoint><con:request>{
-   "email": "admin",
-   "password": "222222"
-}</con:request><con:originalUri>http://ao.docker-lamp/api/auth/login</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ca361877-a29d-4048-b521-9a66bac65ba8" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="f5bf71c1-203d-41f7-aa65-a94874462b96" name="Match content of [status]"><con:configuration><path>$.status</path><content>400</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Loing - admin1 - incorrect email" id="98e15e4b-6c97-450d-a26b-4e66bbc50a01"><con:settings/><con:config service="http://ao.docker-lamp" resourcePath="/api/auth/login" methodName="Login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Loing - admin1 - incorrect email" id="a63269a5-ef8e-473f-b1d7-643931dfe80c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://ao.docker-lamp</con:endpoint><con:request>{
-   "email": "admin1",
-   "password": "111111"
-}</con:request><con:originalUri>http://ao.docker-lamp/api/auth/login</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ca361877-a29d-4048-b521-9a66bac65ba8" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="f5bf71c1-203d-41f7-aa65-a94874462b96" name="Match content of [status]"><con:configuration><path>$.status</path><content>400</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Loing - admin - success" id="5667768d-57c9-4d5c-8ba1-e15cb890436d"><con:settings/><con:config service="http://ao.docker-lamp" resourcePath="/api/auth/login" methodName="Login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Loing - admin - success" id="a63269a5-ef8e-473f-b1d7-643931dfe80c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://ao.docker-lamp</con:endpoint><con:request>{
-	"email":"admin",
-	"password":"111111"
-}</con:request><con:originalUri>http://ao.docker-lamp/api/auth/login</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c5c94b8d-7a8e-472b-b5b4-c2eff8ddc7ab" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="f5bf71c1-203d-41f7-aa65-a94874462b96" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath RegEx Match" id="263af739-f8f9-4709-b258-9581bb7014df" name="Match content of [api_token] using RegEx"><con:configuration><path>$.api_token</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments><regEx>\w{32}</regEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>1b39bad5-386b-4098-a41d-3110df6f12be</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5667768d-57c9-4d5c-8ba1-e15cb890436d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>
+<con:soapui-project id="54d29f1c-e594-498f-bb65-2156ece78fb2" activeEnvironment="Default" name="AccountOnline"
+                    resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL"
+                    xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:RestService" id="6b3b64fb-c6de-41d0-bcfa-b33d27560948"
+                   wadlVersion="http://wadl.dev.java.net/2009/02" name="http://ao.docker-lamp" type="rest"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart=""/>
+        <con:endpoints>
+            <con:endpoint>http://ao.docker-lamp</con:endpoint>
+        </con:endpoints>
+        <con:resource name="Login" path="/api/auth/login" id="75a11401-1760-4564-8657-561fac6b5394">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="Login" id="e67ca0b8-c9b7-45d8-ae76-24d3d254cb7c" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:log="http://ao.docker-lamp/api/auth/login">log:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>text/html; charset=UTF-8</con:mediaType>
+                    <con:status>500 429</con:status>
+                    <con:params/>
+                    <con:element>html</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:log="http://ao.docker-lamp/api/auth/login">log:Fault</con:element>
+                </con:representation>
+                <con:request name="admin" id="a63269a5-ef8e-473f-b1d7-643931dfe80c" mediaType="application/json"
+                             postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://ao.docker-lamp</con:endpoint>
+                    <con:request>{
+                        "email":"admin",
+                        "password":"111111"
+                        }
+                    </con:request>
+                    <con:originalUri>http://ao.docker-lamp/api/auth/login</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:testSuite id="12270380-13b4-4ee8-a471-c0ca9851984a" name="AccountOnline">
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="ead4e603-d81e-406d-b53a-b35f7c44f354" failOnError="true" failTestCaseOnErrors="true"
+                      keepSession="false" maxResults="0" name="Auth" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="Loing - admin - incorrect password"
+                          id="1b39bad5-386b-4098-a41d-3110df6f12be">
+                <con:settings/>
+                <con:config service="http://ao.docker-lamp" resourcePath="/api/auth/login" methodName="Login"
+                            xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="Loing - admin - incorrect password" id="a63269a5-ef8e-473f-b1d7-643931dfe80c"
+                                     mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://ao.docker-lamp</con:endpoint>
+                        <con:request>{
+                            "email": "admin",
+                            "password": "222222"
+                            }
+                        </con:request>
+                        <con:originalUri>http://ao.docker-lamp/api/auth/login</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="ca361877-a29d-4048-b521-9a66bac65ba8"
+                                       name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>400</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="JsonPath Match" id="f5bf71c1-203d-41f7-aa65-a94874462b96"
+                                       name="Match content of [status]">
+                            <con:configuration>
+                                <path>$.status</path>
+                                <content>400</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="Loing - admin1 - incorrect email"
+                          id="98e15e4b-6c97-450d-a26b-4e66bbc50a01">
+                <con:settings/>
+                <con:config service="http://ao.docker-lamp" resourcePath="/api/auth/login" methodName="Login"
+                            xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="Loing - admin1 - incorrect email" id="a63269a5-ef8e-473f-b1d7-643931dfe80c"
+                                     mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://ao.docker-lamp</con:endpoint>
+                        <con:request>{
+                            "email": "admin1",
+                            "password": "111111"
+                            }
+                        </con:request>
+                        <con:originalUri>http://ao.docker-lamp/api/auth/login</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="ca361877-a29d-4048-b521-9a66bac65ba8"
+                                       name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>400</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="JsonPath Match" id="f5bf71c1-203d-41f7-aa65-a94874462b96"
+                                       name="Match content of [status]">
+                            <con:configuration>
+                                <path>$.status</path>
+                                <content>400</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="Loing - admin - success" id="5667768d-57c9-4d5c-8ba1-e15cb890436d">
+                <con:settings/>
+                <con:config service="http://ao.docker-lamp" resourcePath="/api/auth/login" methodName="Login"
+                            xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="Loing - admin - success" id="a63269a5-ef8e-473f-b1d7-643931dfe80c"
+                                     mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://ao.docker-lamp</con:endpoint>
+                        <con:request>{
+                            "email":"admin",
+                            "password":"111111"
+                            }
+                        </con:request>
+                        <con:originalUri>http://ao.docker-lamp/api/auth/login</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="c5c94b8d-7a8e-472b-b5b4-c2eff8ddc7ab"
+                                       name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>200</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="JsonPath Match" id="f5bf71c1-203d-41f7-aa65-a94874462b96"
+                                       name="Match content of [status]">
+                            <con:configuration>
+                                <path>$.status</path>
+                                <content>200</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="JsonPath RegEx Match" id="263af739-f8f9-4709-b258-9581bb7014df"
+                                       name="Match content of [api_token] using RegEx">
+                            <con:configuration>
+                                <path>$.api_token</path>
+                                <content>true</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                                <regEx>\w{32}</regEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+            <con:reportParameters/>
+            <con:breakPoints>
+                <con:testStepId>1b39bad5-386b-4098-a41d-3110df6f12be</con:testStepId>
+                <con:status>NONE</con:status>
+                <con:properties/>
+            </con:breakPoints>
+            <con:breakPoints>
+                <con:testStepId>5667768d-57c9-4d5c-8ba1-e15cb890436d</con:testStepId>
+                <con:status>NONE</con:status>
+                <con:properties/>
+            </con:breakPoints>
+        </con:testCase>
+        <con:properties/>
+        <con:reportParameters/>
+    </con:testSuite>
+    <con:requirements/>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:databaseConnectionContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+    <con:reporting>
+        <con:reportTemplates/>
+        <con:xmlTemplates/>
+        <con:parameters/>
+    </con:reporting>
+    <con:sensitiveInformation/>
+</con:soapui-project>

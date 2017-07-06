@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['web'], function () {
+    Route::get('/home', 'HomeController@index');
+
+    Route::match(['get','post'],"/user","UserController@index");
+
+});
