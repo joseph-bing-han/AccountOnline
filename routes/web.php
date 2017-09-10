@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
 Route::group(['web'], function () {
+    Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
 
     Route::match(['get','post'],"/user","UserController@index");
-
+    Route::match(['get','post'],"/bank","BankController@index");
 });

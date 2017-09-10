@@ -19,7 +19,7 @@ class CreateBanksTable extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
-            $table->text('descrption')->nullable();
+            $table->text('description')->nullable();
             $table->uuid('family_id');  //families table primary id
             $table->unsignedInteger('created_by'); // creat user id
             $table->unsignedInteger('updated_by'); // modify user id
